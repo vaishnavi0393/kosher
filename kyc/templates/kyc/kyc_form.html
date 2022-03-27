@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% load static %}
+    {% csrf_token %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>Form</title>
+    
+    <!-- Bootstrap 5 CSS -->  
+    <link rel='stylesheet' href="{% static 'kyc/lib/css/bootstrap5.0.0.min.css' %}">
+
+    <!-- Bootstrap 5 CSS -->
+<link href="{% static 'kyc/lib/css/bootstrap5.1.0.min.css' %}" rel="stylesheet" >
+<link href="{% static 'kyc/lib/css/bootstrap1.7.1.datepicker.min.css' %}" rel="stylesheet"/>
+    
+    
+	<!-- Demo CSS -->
+  <link rel="stylesheet" href="{% static 'kyc/css/kyc.css' %}">
+  
+  </head>
+  <body>
+ 
+ <main>
+  <article>
+
+    <!-- partial:index.partial.html -->
+
+
+<div class="container d-flex justify-content-center" style="min-width:720px!important">
+  <div class="col-11 col-offset-2">
+    <div class="progress mt-1" style="height: 30px;">
+      <div class="progress-bar progress-bar-striped progress-bar-animated" style="font-weight:bold; font-size:15px;" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+    <div id="KYC_form">
+    <div class="card mt-3">
+        <div class="card-body p-4 step">
+        <div class="text-center">
+          <h5 class="card-title font-weight-bold pb-2"><b>IDENTITY DETAILS</b></h5>
+        </div>
+        <div id="identity_details" class="form-group row">
+          <div class="mb-3 row">
+            <div class="col-3"><label for="name" class="fw-bold">Name<b style="color: #dc3545;">*</b></label></div>
+            <div class="col-9"><input type="text" name="name" class="form-control" id="name" required></div>
+            <div class="invalid-feedback">This field is required</div>
+          </div>
+          
+          <div class="mb-3 row">
+            <div class="col-3"><label class="fw-bold">Gender<b style="color: #dc3545;">*</b></label></div>
+            <div class="col-9">  
+              <input class="form-check-input" type="radio" name="gender" id="male" value="male">
+              <label class="form-check-label me-5" for="male">Male</label>
+              <input class="form-check-input" type="radio" name="gender" id="female" value="female">
+              <label class="form-check-label me-5" for="female">Female</label>
+              <input class="form-check-input" type="radio" name="gender" id="other" value="other">
+              <label class="form-check-label" for="other">Other</label>
+            </div>
+            <div class="invalid-feedback">This field is required</div>
+          </div>
+
+          <div class="mb-3 row" >
+            <div class="col-3"><label class="fw-bold">Marital Status<b style="color: #dc3545;">*</b></label></div>
+            <div class="col-9">
+              <input class="form-check-input" type="radio" name="m_status" id="single" value="single">
+              <label class="form-check-label me-4" for="single">Single</label>
+              <input class="form-check-input" type="radio" name="m_status" id="married" value="married">
+              <label class="form-check-label" for="Married">Married</label>
+            </div>
+            <div class="invalid-feedback">This field is required</div>
+          </div>
+
+         <div class="form-group mb-3 row">
+            <div class="col-3"><label class="fw-bold form-check-label" for="date">Date of Birth<b style="color: #dc3545;">*</b></label></div>
+            <div class="col-9">
+              <div class="input-group date">
+                <input id="b_date" data-date-end-date="0d" class="form-control" required>
+              </div>
+            </div>
+          </div>`
+
+        
+
+
+          <div class="mb-3 row">
+            <div class="col-3"><label class="fw-bold" for="nationality">Nationality<b style="color: #dc3545;">*</b></label></div>
+            <div class="col-9"><input type="text" name="nationality" class="form-control" id="nationality" required></div>
+            <div class="invalid-feedback">This field is required</div>
+          </div>
+
+          <div class="mb-3 row">
+            <div class="col-3"><label class="fw-bold">Status<b style="color: #dc3545;">*</b></label></div>
+            <div class="col-9">  
+              <input class="form-check-input" type="radio" name="status" id="resident" value="resident">
+              <label class="form-check-label me-5" for="resident">Resident</label>
+              <input class="form-check-input" type="radio" name="status" id="non-resident" value="non-resident">
+              <label class="form-check-label me-5" for="non-resident">Non-Resident</label>
+              <input class="form-check-input" type="radio" name="status" id="foreign-national" value="foreign-national">
+              <label class="form-check-label" for="foreign-national">Foreign-national</label>
+            </div>
+            <div class="invalid-feedback">This field is required</div>
+          </div>
+
+          <div class="row">
+            <div class="col-3"><label class="fw-bold" for="pan">PAN Number<b style="color: #dc3545;">*</b></label></div>
+            <div class="col-9">
+              <input type="text" name="pan" class="form-control text-uppercase" id="pan" required>
+              <p id="pan_msg" class="text-danger"></p>
+            </div>
+            
+            <div class="invalid-feedback"></div>
+            
+          </div>
+
+          <div class="mb-3 row">
+            <div class="col-3"><label class="fw-bold" for="aadhar">Aadhar Number<b style="color: #dc3545;">*</b></label></div>
+            <div class="col-9"><input type="text" name="aadhar" class="form-control" minlength="12" id="last_aadhar" required></div>
+            <div class="invalid-feedback">This field is required</div>
+          </div>
+        </div>        
+      </div>
+
+      <div id="address_details" class="card-body p-4 step" style="display: none;">
+        <div class="text-center">
+          <h5 class="card-title fw-bold pb-2">ADDRESS DETAILS</h5>
+        </div>
+        <div class="mb-3 row">
+          <div class="col-3"><label class="fw-bold" for="permanent_address">Permanent Address<b style="color: #dc3545;">*</b></label></div>
+          <div class="col-9"><textarea type="text" name="permanent_address" class="form-control" id="permanent_address" required></textarea></div>
+          <div class="invalid-feedback">This field is required</div>
+        </div>
+
+        <div class="mb-3 row">
+          <div class="col-3"><label class="fw-bold" for="communication_address">Communication Address<b style="color: #dc3545;">*</b></label></div>
+          <div class="col-9">
+            <input class="form-check-input" type="checkbox" id="same" />
+            <label for="same">Same as above</label>
+            <textarea type="text" name="communication_address" class="form-control" id="communication_address" required></textarea>
+          </div>
+          <div class="invalid-feedback">This field is required</div>
+        </div>
+
+        <div class="mb-3 row">
+          <div class="col-3"><label class="fw-bold" for="mobile">Mobile Number<b style="color: #dc3545;">*</b></label></div>
+          <div class="col-9"><input type="text" name="mobile" class="form-control" minlength="10" maxlength="10" id="mobile" required></div>
+          <div class="invalid-feedback">This field is required</div>
+        </div>
+
+        <div class="row">
+          <div class="col-3"><label class="fw-bold" for="email">Email<b style="color: #dc3545;">*</b></label></div>
+          <div class="col-9">
+            <input type="email" name="email" class="form-control" id="last_email" required>
+            <p id="email_msg" class="text-danger"></p>
+          </div>
+          <div class="invalid-feedback">This field is required</div>
+        </div>
+      </div> 
+
+      <div id="other_info" class="card-body p-5 step" style="display: none;" >
+        <div class="text-center">
+          <h5 class="card-title fw-bold pb-2">OTHER INFORMATION</h5>
+        </div>
+            <div class="mb-3">
+            <label class="fw-bold">Gross Annual Income Details<b style="color: #dc3545;">*</b></label>
+            <div class="row">
+                <div class="d-block col-4">
+                  <input class="form-check-input" type="radio" name="income" id="b1l" value="below 1 lac">
+                  <label class="form-check-label" for="b1l">Below 1 Lac</label>
+                </div>
+                <div class="d-block col-4">
+                  <input class="form-check-input" type="radio" name="income" id="1-5" value="1-5 lac">
+                  <label class="form-check-label" for="1-5">1-5 Lac</label>
+                </div>
+                <div class="d-block col-4">
+                  <input class="form-check-input" type="radio" name="income" id="5-10" value="5-10 lac">
+                  <label class="form-check-label" for="5-10">5-10 Lac</label>
+                </div>
+            </div>
+            <div class="row">
+              <div class="d-block col-4">
+                <input class="form-check-input" type="radio" name="income" id="10-25" value="10-25 lac">
+                <label class="form-check-label" for="10-25">10-25 Lac</label>
+              </div>
+              <div class="d-block col-4">
+                <input class="form-check-input" type="radio" name="income" id="25" value=">25 lac">
+                <label class="form-check-label" for="25">>25 Lac</label>
+              </div>
+            </div>
+          </div>
+              <div class="invalid-feedback">This field is required</div>
+
+
+            <div class="mb-3">
+              <label class="fw-bold">Occupation Deatils<b style="color: #dc3545;">*</b></label>
+              <div class="row">
+                <div class="col-4">
+                  <input class="form-check-input" type="radio" name="occupation" id="o1" value="Private Sector">
+                  <label class="form-check-label" for="o1">Private Sector</label>
+                </div>
+                <div class="col-4">
+                  <input class="form-check-input" type="radio" name="occupation" id="o2" value="Public Sector">
+                  <label class="form-check-label" for="o2">Public Sector</label>
+                </div>
+                <div class="col-4">
+                  <input class="form-check-input" type="radio" name="occupation" id="o3" value="Govt. Service">
+                  <label class="form-check-label" for="o3">Govt. Service</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-4">
+                  <input class="form-check-input" type="radio" name="occupation" id="o4" value="Business">
+                  <label class="form-check-label" for="o4">Business</label>
+                </div>
+                <div class="col-4">
+                  <input class="form-check-input" type="radio" name="occupation" id="o5" value="Professional">
+                  <label class="form-check-label" for="o5">Professional</label>
+                </div>
+                <div class="col-4">
+                  <input class="form-check-input" type="radio" name="occupation" id="o6" value="Retired">
+                  <label class="form-check-label" for="o6">Retired</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-4">
+                  <input class="form-check-input" type="radio" name="occupation" id="o7" value="Housewife">
+                  <label class="form-check-label" for="o7">Housewife</label>
+                </div>
+                <div class="col-4">
+                  <input class="form-check-input" type="radio" name="occupation" id="o8" value="student">
+                  <label class="form-check-label" for="o8">Student</label>
+                </div>
+                <div class="col-4">
+                  <input class="form-check-input" type="radio" name="occupation" id="o9">
+                  <label class="form-check-label" for="o9">Other</label>
+                </div>
+              </div>
+              <div id="other_o" style="display: none;">
+                <input type="text" class="form control" />
+                <label for="other_o">Please mention occupation</label>
+              </div>
+              <div class="invalid-feedback">This field is required</div>
+            </div>
+
+            <div class="mb-3">
+              <label class="fw-bold">Please select as applicable<b style="color: #dc3545;">*</b></label>
+              <div class="d-block">
+                <input class="form-check-input" type="radio" name="p_status" id="p1" value="Politically Exposed Person">
+                <label class="form-check-label" for="p1">Politically Exposed Person</label>
+              </div>
+              <div class="d-block">
+                <input class="form-check-input" type="radio" name="p_status" id="p2" value="Related to Politically Exposed Person">
+                <label class="form-check-label" for="p2">Related to Politically Exposed Person</label>
+              </div>
+              <div class="d-block">
+                <input class="form-check-input" type="radio" name="p_status" id="p3" value="NA">
+                <label class="form-check-label" for="p3">NA (Not Applicable)</label>
+              </div>
+              <div class="invalid-feedback">This field is required</div>
+            </div>
+
+            <div class="mb-3 row">
+              <div class="col-3"><label for="KYC_check">KYC Registration Check<b style="color: #dc3545;">*</b></label></div>
+              <div class="col-9"><textarea type="text" name="KYC_check" class="form-control" id="last_KYC_check" placeholder="To be filled by Advisor" required></textarea></div>
+              <div class="invalid-feedback">This field is required</div>
+            </div>
+
+      </div>
+
+
+
+      <div id="investment_profile" class="card-body p-5 step" style="display: none;">
+        <div class="text-center">
+          <h5 class="card-title fw-bold pb-2">INVESTMENT PROFILE</h5>
+        </div>
+        <div class="mb-3 row">
+          <div class="col-3"><label class="fw-bold" for="exp_sec">Investment Experience in Securities</label></div>
+          <div class="col-9"><textarea type="text" name="exp_sec" class="form-control" id="exp_sec"></textarea></div>
+        </div>
+        <div class="mb-3 row">
+          <div class="col-3"><label class="fw-bold" for="goals">Overall Investment Goals</div>
+          <div class="col-9"><textarea type="text" name="goals" class="form-control" id="goals" ></textarea></div>
+          <div class="invalid-feedback">This field is required</div>
+        </div>
+        <div class="mb-3 row">
+          <div class="col-3"><label class="fw-bold">Risk Tolerance<b style="color: #dc3545;">*</b></label></div>
+          <div class="col-9">  
+            <input class="form-check-input" type="radio" name="tolerance" id="high" value="high">
+            <label class="form-check-label me-5" for="high">High</label>
+            <input class="form-check-input" type="radio" name="tolerance" id="moderate" value="moderate">
+            <label class="form-check-label me-5" for="moderate">Moderate</label>
+            <input class="form-check-input" type="radio" name="tolerance" id="low" value="low">
+            <label class="form-check-label" for="low">Low</label>
+          </div>
+          <div class="invalid-feedback">This field is required</div>
+        </div>
+
+        <div class="mb-3 row">
+          <div class="col-3"><label class="fw-bold" for="objectives">Investment Objectives<b style="color: #dc3545;">*</b></label></div>
+          <div class="col-9"><textarea type="text" name="objectives" class="form-control" id="last_objectives" required></textarea></div>
+          <div class="invalid-feedback">This field is required</div>
+        </div>
+      </div>
+      
+      <div class="card-footer">
+        <button class="action back btn btn-sm btn-outline-warning" style="display: none">Back</button>
+        <button class="action next btn btn-sm btn-outline-secondary float-end" disabled="">Next</button>
+        <button type="submit" class="action submit btn btn-sm btn-outline-success float-end" data-bs-toggle="modal" data-bs-target="#myModal" style="display: none">Submit</button>
+      </div>
+
+      <!-- The Modal -->
+<div class="modal" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Confirmation</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        Are you sure you want to Submit?
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="form_submit">Submit</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+      
+    </div>
+  </div>
+
+  </div>
+</div>
+<!-- partial -->
+  
+  </article>
+ </main>
+ 
+  
+  
+<!-- jQuery JS -->
+<script src="{% static 'kyc/lib/js/jquery3.6.0.min.js' %}"></script>
+<!-- Bootstrap 5 JS -->
+<script src="{% static 'kyc/lib/js/bootstrap5.0.0.bundle.min.js' %}"></script>
+<!-- Multi-step Form JS -->
+<script src="{% static 'kyc/js/validation.js' %}"></script>
+
+<script src="{% static 'kyc/js/submission.js' %}"></script>
+
+<script src="{% static 'kyc/lib/js/datepicker1.9.0.min.js' %}"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+ -->
+
+  
+  
+ 
+
+
+  </body>
+</html>

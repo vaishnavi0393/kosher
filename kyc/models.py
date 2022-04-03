@@ -1,4 +1,6 @@
 
+from time import sleep
+from unicodedata import name
 from django.conf import settings
 from django.db import models
 
@@ -26,9 +28,18 @@ class KYC_data(models.Model):
     risk = models.CharField(max_length=200)
     objective = models.TextField()
 
+    """ def __str__(self): """
+    """ return (self.name,self.gender,self.marital_status,self.dob,
+        self.nationality,self.status,self.pan,self.aadhar,
+        self.permanent_address,self.communication_address,
+        self.contact_no,self.email_ad,self.gross_annual_income,
+        self.occupation,self.applicable_type,self.KYC_check,
+        self.experience,self.goals,self.risk,self.objective) """
+        
+    """     return self  """
 
     class Meta:
         db_table= "kyc_data"
 
 
-
+    

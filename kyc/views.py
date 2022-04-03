@@ -1,9 +1,11 @@
 
+import re
 from django.shortcuts import redirect, render
 from django.http import Http404,HttpResponse,HttpRequest
 import json
 from .models import KYC_data
 from django.db import IntegrityError
+from django.core.serializers import serialize
 
 # Create your views here.
 
@@ -49,7 +51,9 @@ def kyc_data(request):
 
 
 def client_data(request):
-    try:
-        return render(request,'kyc/client_data.html',{})
-    except:
-        raise Http404("Page not found")
+    all_entries = serialize("json",KYC_data.objects.all())
+    return HttpResponse(all_entries, content_type="application/ld+json")
+     
+def request_client_data(request):
+     return render(request,'kyc/client_data.html',{})
+  

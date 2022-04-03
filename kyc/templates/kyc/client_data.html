@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% load static %}
+        {% csrf_token %}
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width" initial-scale="1.0">
+        <link rel='stylesheet' href="{% static 'kyc/lib/css/bootstrap5.0.0.min.css' %}">
+        <link href="{% static 'kyc/lib/css/bootstrap5.1.0.min.css' %}" rel="stylesheet" >
+
+    </head>
+    <body>
+      <div class="container d-block justify-content-center">
+        <nav class="navbar navbar-light bg-light">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="#"><b class="text-primary">KOSHER</b></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          </div>
+        </nav>
+        <div class="collapse navbar-collapse" id="navbarToggleExternalContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link active" href="/kyc">Fill Details</a></li>
+            <li class="nav-item"><a class="nav-link" href="request_client_data">Client Data</a></li>
+          </ul>
+        </div>
+      </div>
+
+        <div class="container">
+            <table class="table table-responsive">
+                <thead class="table-light">
+                    <th scope="col">Client_Id</th>
+                    <th scope="col">Client Name</th>
+                    <th scope="col">Mobile No.</th>
+                    <th scope="col">Email</th>
+                </thead>
+                <tbody id="mytab">
+            
+                </tbody>
+            </table>
+        </div>
+
+        <!-- The Modal -->
+        <div class="modal" id="myModal">
+            <div class="modal-dialog modal-dialog-scrollable">
+              <div class="modal-content">
+  
+                <!-- Modal Header -->
+                <div class="modal-header">
+                  <h4 class="modal-title">Client Details</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+  
+                <!-- Modal body -->
+                <div class="modal-body">
+                  <table class="table table-responsive" id="det"></table>
+                </div>
+  
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                  
+                </div>
+  
+              </div>
+            </div>
+          </div>
+  
+
+    </body>
+    
+    <!-- jQuery JS -->
+    <script src="{% static 'kyc/lib/js/jquery3.6.0.min.js' %}"></script>
+    <!-- Bootstrap 5 JS -->
+    <script src="{% static 'kyc/lib/js/bootstrap5.0.0.bundle.min.js' %}"></script>
+    <script src="{% static 'kyc/js/show_client_data.js' %}"></script>
+</html>

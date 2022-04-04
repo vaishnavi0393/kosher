@@ -6,7 +6,7 @@ body{
   font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-weight: 300;
-  font-smoothing: antialiased;
+  font-smooth: antialiased;
 -webkit-font-smoothing: antialiased;
 -moz-osx-font-smoothing: grayscale;
   font-size: 15px;
@@ -185,4 +185,18 @@ code{
     border:1px solid #ddd;
     padding: 2px;
     border-radius: 2px;
+}
+
+#progress_bar
+{
+   font-weight:bold; 
+   font-size:15px;
+}
+
+#bar{
+   height: 30px;
+}
+
+#investment_profile, #other_info, #address_details{
+   display: none;
 }

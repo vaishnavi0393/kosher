@@ -47,8 +47,8 @@
         
           <div class="col-11 col-offset-2">
             
-            <div class="progress mt-1" style="height: 30px;">
-              <div class="progress-bar progress-bar-striped progress-bar-animated" style="font-weight:bold; font-size:15px;" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+            <div class="progress mt-1" id="bar">
+              <div class="progress-bar progress-bar-striped progress-bar-animated" id="progress_bar" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
               
             </div>
             
@@ -60,13 +60,13 @@
                 </div>
                 <div id="identity_details" class="form-group row">
                   <div class="mb-3 row">
-                    <div class="col-3"><label for="name" class="fw-bold">Name<b style="color: #dc3545;">*</b></label></div>
+                    <div class="col-3"><label for="name" class="fw-bold">Name<b class="text-danger" >*</b></label></div>
                     <div class="col-9"><input type="text" name="name" class="form-control" id="name" required></div>
                     <div class="invalid-feedback">This field is required</div>
                   </div>
                   
                   <div class="mb-3 row">
-                    <div class="col-3"><label class="fw-bold">Gender<b style="color: #dc3545;">*</b></label></div>
+                    <div class="col-3"><label class="fw-bold">Gender<b class="text-danger">*</b></label></div>
                     <div class="col-9">  
                       <input class="form-check-input" type="radio" name="gender" id="male" value="male">
                       <label class="form-check-label me-5" for="male">Male</label>
@@ -79,7 +79,7 @@
                   </div>
 
                   <div class="mb-3 row" >
-                    <div class="col-3"><label class="fw-bold">Marital Status<b style="color: #dc3545;">*</b></label></div>
+                    <div class="col-3"><label class="fw-bold">Marital Status<b class="text-danger">*</b></label></div>
                     <div class="col-9">
                       <input class="form-check-input" type="radio" name="m_status" id="single" value="single">
                       <label class="form-check-label me-4" for="single">Single</label>
@@ -90,7 +90,7 @@
                   </div>
 
                 <div class="form-group mb-3 row">
-                    <div class="col-3"><label class="fw-bold form-check-label" for="date">Date of Birth<b style="color: #dc3545;">*</b></label></div>
+                    <div class="col-3"><label class="fw-bold form-check-label" for="date">Date of Birth<b class="text-danger">*</b></label></div>
                     <div class="col-9">
                       <div class="input-group date">
                         <input id="b_date" data-date-end-date="0d" class="form-control" required>
@@ -102,13 +102,13 @@
 
 
                   <div class="mb-3 row">
-                    <div class="col-3"><label class="fw-bold" for="nationality">Nationality<b style="color: #dc3545;">*</b></label></div>
+                    <div class="col-3"><label class="fw-bold" for="nationality">Nationality<b class="text-danger">*</b></label></div>
                     <div class="col-9"><input type="text" name="nationality" class="form-control" id="nationality" required></div>
                     <div class="invalid-feedback">This field is required</div>
                   </div>
 
                   <div class="mb-3 row">
-                    <div class="col-3"><label class="fw-bold">Status<b style="color: #dc3545;">*</b></label></div>
+                    <div class="col-3"><label class="fw-bold">Status<b class="text-danger">*</b></label></div>
                     <div class="col-9">  
                       <input class="form-check-input" type="radio" name="status" id="resident" value="resident">
                       <label class="form-check-label me-5" for="resident">Resident</label>
@@ -121,7 +121,7 @@
                   </div>
 
                   <div class="row">
-                    <div class="col-3"><label class="fw-bold" for="pan">PAN Number<b style="color: #dc3545;">*</b></label></div>
+                    <div class="col-3"><label class="fw-bold" for="pan">PAN Number<b class="text-danger">*</b></label></div>
                     <div class="col-9">
                       <input type="text" name="pan" class="form-control text-uppercase" id="pan" required>
                       <p id="pan_msg" class="text-danger"></p>
@@ -132,25 +132,25 @@
                   </div>
 
                   <div class="mb-3 row">
-                    <div class="col-3"><label class="fw-bold" for="aadhar">Aadhar Number<b style="color: #dc3545;">*</b></label></div>
+                    <div class="col-3"><label class="fw-bold" for="aadhar">Aadhar Number<b class="text-danger">*</b></label></div>
                     <div class="col-9"><input type="text" name="aadhar" class="form-control" minlength="12" id="last_aadhar" required></div>
                     <div class="invalid-feedback">This field is required</div>
                   </div>
                 </div>        
               </div>
 
-              <div id="address_details" class="card-body p-4 step" style="display: none;">
+              <div id="address_details" class="card-body p-4 step">
                 <div class="text-center">
                   <h5 class="card-title fw-bold pb-2">ADDRESS DETAILS</h5>
                 </div>
                 <div class="mb-3 row">
-                  <div class="col-3"><label class="fw-bold" for="permanent_address">Permanent Address<b style="color: #dc3545;">*</b></label></div>
+                  <div class="col-3"><label class="fw-bold" for="permanent_address">Permanent Address<b class="text-danger">*</b></label></div>
                   <div class="col-9"><textarea type="text" name="permanent_address" class="form-control" id="permanent_address" required></textarea></div>
                   <div class="invalid-feedback">This field is required</div>
                 </div>
 
                 <div class="mb-3 row">
-                  <div class="col-3"><label class="fw-bold" for="communication_address">Communication Address<b style="color: #dc3545;">*</b></label></div>
+                  <div class="col-3"><label class="fw-bold" for="communication_address">Communication Address<b class="text-danger">*</b></label></div>
                   <div class="col-9">
                     <input class="form-check-input" type="checkbox" id="same" />
                     <label for="same">Same as above</label>
@@ -160,13 +160,13 @@
                 </div>
 
                 <div class="mb-3 row">
-                  <div class="col-3"><label class="fw-bold" for="mobile">Mobile Number<b style="color: #dc3545;">*</b></label></div>
+                  <div class="col-3"><label class="fw-bold" for="mobile">Mobile Number<b class="text-danger">*</b></label></div>
                   <div class="col-9"><input type="text" name="mobile" class="form-control" minlength="10" maxlength="10" id="mobile" required></div>
                   <div class="invalid-feedback">This field is required</div>
                 </div>
 
                 <div class="row">
-                  <div class="col-3"><label class="fw-bold" for="email">Email<b style="color: #dc3545;">*</b></label></div>
+                  <div class="col-3"><label class="fw-bold" for="email">Email<b class="text-danger">*</b></label></div>
                   <div class="col-9">
                     <input type="email" name="email" class="form-control" id="last_email" required>
                     <p id="email_msg" class="text-danger"></p>
@@ -175,12 +175,12 @@
                 </div>
               </div> 
 
-              <div id="other_info" class="card-body p-5 step" style="display: none;" >
+              <div id="other_info" class="card-body p-5 step" >
                 <div class="text-center">
                   <h5 class="card-title fw-bold pb-2">OTHER INFORMATION</h5>
                 </div>
                     <div class="mb-3">
-                    <label class="fw-bold">Gross Annual Income Details<b style="color: #dc3545;">*</b></label>
+                    <label class="fw-bold">Gross Annual Income Details<b class="text-danger">*</b></label>
                     <div class="row">
                         <div class="d-block col-4">
                           <input class="form-check-input" type="radio" name="income" id="b1l" value="below 1 lac">
@@ -210,7 +210,7 @@
 
 
                     <div class="mb-3">
-                      <label class="fw-bold">Occupation Deatils<b style="color: #dc3545;">*</b></label>
+                      <label class="fw-bold">Occupation Deatils<b class="text-danger">*</b></label>
                       <div class="row">
                         <div class="col-4">
                           <input class="form-check-input" type="radio" name="occupation" id="o1" value="Private Sector">
@@ -261,7 +261,7 @@
                     </div>
 
                     <div class="mb-3">
-                      <label class="fw-bold">Please select as applicable<b style="color: #dc3545;">*</b></label>
+                      <label class="fw-bold">Please select as applicable<b class="text-danger">*</b></label>
                       <div class="d-block">
                         <input class="form-check-input" type="radio" name="p_status" id="p1" value="Politically Exposed Person">
                         <label class="form-check-label" for="p1">Politically Exposed Person</label>
@@ -278,7 +278,7 @@
                     </div>
 
                     <div class="mb-3 row">
-                      <div class="col-3"><label for="KYC_check">KYC Registration Check<b style="color: #dc3545;">*</b></label></div>
+                      <div class="col-3"><label for="KYC_check">KYC Registration Check<b class="text-danger">*</b></label></div>
                       <div class="col-9"><textarea type="text" name="KYC_check" class="form-control" id="last_KYC_check" placeholder="To be filled by Advisor" required></textarea></div>
                       <div class="invalid-feedback">This field is required</div>
                     </div>
@@ -287,7 +287,7 @@
 
 
 
-              <div id="investment_profile" class="card-body p-5 step" style="display: none;">
+              <div id="investment_profile" class="card-body p-5 step" >
                 <div class="text-center">
                   <h5 class="card-title fw-bold pb-2">INVESTMENT PROFILE</h5>
                 </div>
@@ -301,7 +301,7 @@
                   <div class="invalid-feedback">This field is required</div>
                 </div>
                 <div class="mb-3 row">
-                  <div class="col-3"><label class="fw-bold">Risk Tolerance<b style="color: #dc3545;">*</b></label></div>
+                  <div class="col-3"><label class="fw-bold">Risk Tolerance<b class="text-danger">*</b></label></div>
                   <div class="col-9">  
                     <input class="form-check-input" type="radio" name="tolerance" id="high" value="high">
                     <label class="form-check-label me-5" for="high">High</label>
@@ -314,7 +314,7 @@
                 </div>
 
                 <div class="mb-3 row">
-                  <div class="col-3"><label class="fw-bold" for="objectives">Investment Objectives<b style="color: #dc3545;">*</b></label></div>
+                  <div class="col-3"><label class="fw-bold" for="objectives">Investment Objectives<b class="text-danger">*</b></label></div>
                   <div class="col-9"><textarea type="text" name="objectives" class="form-control" id="last_objectives" required></textarea></div>
                   <div class="invalid-feedback">This field is required</div>
                 </div>

@@ -126,3 +126,12 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+#Content Security Policy Headers
+
+CSP_DEFAULT_SRC = ("'self'")
+
+CSP_SCRIPT_SRC = ("'self'")
+
+CSP_STYLE_SRC = ("'self'")

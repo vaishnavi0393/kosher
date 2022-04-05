@@ -197,6 +197,6 @@ code{
    height: 30px;
 }
 
-#investment_profile, #other_info, #address_details{
+#investment_profile, #other_info, #address_details,#back,#sub{
    display: none;
 }

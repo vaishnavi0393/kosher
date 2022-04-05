@@ -135,3 +135,9 @@ CSP_DEFAULT_SRC = ("'self'")
 CSP_SCRIPT_SRC = ("'self'")
 
 CSP_STYLE_SRC = ("'self'")
+
+CSP_STYLE_SRC_ELEM = ["'self'",'https://fonts.googleapis.com','https://stackpath.bootstrapcdn.com']
+
+CSP_FONT_SRC = ['https://fonts.gstatic.com','https://stackpath.bootstrapcdn.com']
+
+CSP_IMG_SRC =["'self'",'data:']

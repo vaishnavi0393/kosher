@@ -109,13 +109,17 @@
 
                   <div class="mb-3 row">
                     <div class="col-3"><label class="fw-bold">Status<b class="text-danger">*</b></label></div>
-                    <div class="col-9">  
-                      <input class="form-check-input" type="radio" name="status" id="resident" value="resident">
-                      <label class="form-check-label me-5" for="resident">Resident</label>
-                      <input class="form-check-input" type="radio" name="status" id="non-resident" value="non-resident">
-                      <label class="form-check-label me-5" for="non-resident">Non-Resident</label>
-                      <input class="form-check-input" type="radio" name="status" id="foreign-national" value="foreign-national">
-                      <label class="form-check-label" for="foreign-national">Foreign-national</label>
+                    <div class="col-9">
+                          <input class="form-check-input" type="radio" name="status" id="resident" value="resident">
+                          <label class="form-check-label me-4" for="resident">Resident</label> 
+                        
+                          <input class="form-check-input" type="radio" name="status" id="non-resident" value="non-resident">
+                          <label class="form-check-label me-4" for="non-resident">Non-Resident</label>
+                          <input class="form-check-input" type="radio" name="status" id="foreign-national" value="foreign-national">
+                          <label class="form-check-label" for="foreign-national">Foreign-national</label>
+                        
+                        
+                      </div>
                     </div>
                     <div class="invalid-feedback">This field is required</div>
                   </div>
@@ -253,10 +257,10 @@
                           <label class="form-check-label" for="o9">Other</label>
                         </div>
                       </div>
-                      <div id="other_o" style="display: none;">
+                      <!-- <div id="other_o" style="display: none;">
                         <input type="text" class="form control" />
                         <label for="other_o">Please mention occupation</label>
-                      </div>
+                      </div> -->
                       <div class="invalid-feedback">This field is required</div>
                     </div>
 
@@ -321,9 +325,9 @@
               </div>
               
               <div class="card-footer">
-                <button class="action back btn btn-sm btn-outline-warning" style="display: none">Back</button>
+                <button class="action back btn btn-sm btn-outline-warning" id="back">Back</button>
                 <button class="action next btn btn-sm btn-outline-secondary float-end" disabled="">Next</button>
-                <button type="submit" class="action submit btn btn-sm btn-outline-success float-end" data-bs-toggle="modal" data-bs-target="#myModal" style="display: none">Submit</button>
+                <button type="submit" class="action submit btn btn-sm btn-outline-success float-end" data-bs-toggle="modal" data-bs-target="#myModal" id="sub">Submit</button>
               </div>
 
               <!-- The Modal -->

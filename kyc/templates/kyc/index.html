@@ -1,0 +1,111 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    
+    <meta charset="utf-8">
+    <title>KOSHER</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+    
+    
+    <meta http-equiv="Content-Security-Policy" 
+            content="default-src 'self';
+                    img-src 'self' data: ;
+                    style-src 'self'  https://fonts.googleapis.com  https://stackpath.bootstrapcdn.com;
+                    style-src-elem 'self' https://fonts.googleapis.com  https://stackpath.bootstrapcdn.com;
+                    script-src 'self';
+                    font-src 'self' data: https://fonts.gstatic.com http://fontawesome.io https://fonts.googleapis.com https://stackpath.bootstrapcdn.com; ">
+    
+                    {% load static %}
+                    {% csrf_token %}
+    
+    
+    <!-- Favicon -->                
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"> <!--ok-->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <!--ok-->
+    <link rel="preconnect" href="http://fontawesome.io" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&display=swap" rel="stylesheet"> <!--ok-->
+    
+    <!-- Icon Font Stylesheet -->
+    <link href="{% static 'kyc/lib/css/font-awesome4.7.0.min.css' %}" rel="stylesheet">
+    <!--<link href="{% static 'kyc/lib/css/font-awesome5.10.0.all.min.css' %}" rel="stylesheet"> --> <!--added-->
+    <!-- <link href="{% static 'kyc/lib/css/bootstrap_icon1.4.1.css' %}" rel="stylesheet">  --><!--added-->
+
+    <!-- Libraries Stylesheet -->
+    <link href="{% static 'kyc/lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+    <link href="{% static 'kyc/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css' %}" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{% static 'kyc/lib/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="{% static 'kyc/css/style.css' %}" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container-xxl position-relative bg-white d-flex p-0">
+        <!-- Spinner Start -->
+        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" id="spin" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <!-- Spinner End -->
+
+
+        {% include 'kyc/sidebar.html' %}
+
+        {% include 'kyc/nav.html' %}
+
+            
+
+            <!-- View Area start -->
+              <div class="container-fluid pt-4 px-4">
+                <div class="bg-light text-start rounded p-4">
+                    
+                    <div id="viewarea">
+                        {% include 'kyc/gen_kyc_url_table.html' %}
+
+                        {% include 'kyc/client_data_table.html' %}
+                      
+                     </div>
+                </div>
+            </div> 
+            <!-- View Area End -->
+
+            {% include 'kyc/footer.html' %}
+
+            
+        <!-- </div> -->
+        <!-- Content End -->
+
+
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"> <i class="fa fa-arrow-circle-o-up"></i></a>
+    </div>
+
+    <!-- JavaScript Libraries -->
+    
+    <script src="{% static 'kyc/lib/js/jquery3.6.0.min.js' %}"></script>  <!--added-->
+    <script src="{% static 'kyc/lib/js/bootstrap5.0.0.bundle.min.js' %}"></script> <!--ok-->
+    <script src="{% static 'kyc/lib/chart/chart.min.js' %}"></script>
+    <script src="{% static 'kyc/lib/easing/easing.min.js' %}"></script>
+    <script src="{% static 'kyc/lib/waypoints/waypoints.min.js' %}"></script>
+    <script src="{% static 'kyc/lib/owlcarousel/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'kyc/lib/tempusdominus/js/moment.min.js' %}"></script>
+    <script src="{% static 'kyc/lib/tempusdominus/js/moment-timezone.min.js' %}"></script>
+    <script src="{% static 'kyc/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js' %}"></script>
+    
+    <!-- Template Javascript -->
+    <script src="{% static 'kyc/js/main.js' %}"></script>
+    <script src="{% static 'kyc/js/show_client_data.js' %}"></script>
+    <script src="{% static 'kyc/js/kyc_url.js' %}"></script>
+</body>
+
+</html>

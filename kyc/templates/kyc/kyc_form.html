@@ -1,10 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta http-equiv="Content-Security-Policy" 
+            content="default-src 'self';
+                    img-src 'self' data: ;
+                    style-src 'self'  https://fonts.googleapis.com  https://stackpath.bootstrapcdn.com;
+                    style-src-elem 'self' https://fonts.googleapis.com  https://stackpath.bootstrapcdn.com;
+                    script-src 'self' ;
+                    font-src 'self' https://fonts.gstatic.com  https://stackpath.bootstrapcdn.com; ">
     {% load static %}
     {% csrf_token %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width" initial-scale="1.0">
+    
+    
   
     <title>Kosher</title>
     
@@ -24,23 +33,6 @@
       <article>
 
     <!-- partial:index.partial.html -->
-
-        <div class="container d-block justify-content-center">
-          <nav class="navbar navbar-light bg-light">
-            <div class="container-fluid">
-              <a class="navbar-brand" href="#"><b class="text-primary">KOSHER</b></a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-            </div>
-          </nav>
-          <div class="collapse navbar-collapse" id="navbarToggleExternalContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item"><a class="nav-link active" href="">Fill Details</a></li>
-              <li class="nav-item"><a class="nav-link" href="request_client_data">Client Data</a></li>
-            </ul>
-          </div>
-        </div>
 
 
         <div class="container d-flex justify-content-center" >

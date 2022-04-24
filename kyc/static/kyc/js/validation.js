@@ -234,3 +234,14 @@ jQuery(function($){ // wait until the DOM is ready
         event.preventDefault();
       }
   });
+
+  $("#name,#nationality,#pan,#permanent_address,#communication_address,#last_KYC_check,#exp_sec,#goals,#last_objectives").keydown(function(event){
+    let event_array = [188,190] 
+    if(event_array.includes(event.which)){
+      event.preventDefault();
+    }
+});
+
+$("#name,#nationality,#pan,#permanent_address,#communication_address,#last_KYC_check,#exp_sec,#goals,#last_objectives").on("paste",function(event){
+    event.preventDefault();
+});

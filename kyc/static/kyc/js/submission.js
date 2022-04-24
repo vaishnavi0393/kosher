@@ -1,5 +1,8 @@
-
 $( "#form_submit" ).click(function( event ) {
+    const urlParams = new URLSearchParams(location.search); 
+    var i = urlParams.values();
+    var uiid = i.next().value;
+
     const identity_details = {};
     identity_details.name = $("#name").val();
     identity_details.gender=$("input[name=gender]:checked").val();
@@ -29,7 +32,7 @@ $( "#form_submit" ).click(function( event ) {
     investment_profile.risk_tolerance = $("input[name=tolerance]:checked").val();
     investment_profile.investment_objectives = $("#last_objectives").val();
 
-    const obj = {"identity_details": identity_details, "address_details":address_details, "other_information":other_information,"investment_profile":investment_profile};
+    const obj = {"identity_details": identity_details, "address_details":address_details, "other_information":other_information,"investment_profile":investment_profile,"uiid":uiid};
     const myJSON = JSON.stringify(obj);
     const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
     //console.log(myJSON); 
@@ -50,3 +53,13 @@ $( "#form_submit" ).click(function( event ) {
     xhttp.setRequestHeader("Content-type","application/json");
     xhttp.send(myJSON);   
 });
+ 
+
+/* $( "#form_submit" ).click(function( event ){
+    const urlParams = new URLSearchParams(location.search); 
+    var i = urlParams.values();
+    console.log(i.next().value);
+        
+    
+});
+ */

@@ -27,6 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+HOST = '127.0.0.1:8000'
+
 
 # Application definition
 
@@ -102,6 +104,8 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+
+
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
@@ -138,6 +142,6 @@ CSP_STYLE_SRC = ("'self'")
 
 CSP_STYLE_SRC_ELEM = ["'self'",'https://fonts.googleapis.com','https://stackpath.bootstrapcdn.com']
 
-CSP_FONT_SRC = ['https://fonts.gstatic.com','https://stackpath.bootstrapcdn.com']
+CSP_FONT_SRC = ["'self'",'data:', 'http://fontawesome.io','https://fonts.gstatic.com','https://stackpath.bootstrapcdn.com']
 
 CSP_IMG_SRC =["'self'",'data:']

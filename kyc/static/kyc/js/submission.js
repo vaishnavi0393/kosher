@@ -1,7 +1,7 @@
 $( "#form_submit" ).click(function( event ) {
     const urlParams = new URLSearchParams(location.search); 
-    var i = urlParams.values();
-    var uiid = i.next().value;
+    var uiid = urlParams.get('id');
+    
 
     const identity_details = {};
     identity_details.name = $("#name").val();
@@ -40,13 +40,15 @@ $( "#form_submit" ).click(function( event ) {
     const xhttp = new XMLHttpRequest();
 
     xhttp.onload = function() {
-        if(this.responseText=="success"){
-            alert("Data Submitted");
-            location.href = ""; 
+        if(this.responseText=="failed") {
+            $("#er").modal('show');
         }
-        else if(this.responseText=="failed") {
-            alert("PAN/Aadhar No/Email addres already exists");
-        }
+        else if(this.responseText=="success") {
+            $('#su').modal('show');
+            setTimeout(function() {
+                window.close();
+            }, 5000);
+        } 
       }
     xhttp.open("POST","kyc_data");
     xhttp.setRequestHeader("X-CSRFToken",csrftoken);
@@ -63,3 +65,7 @@ $( "#form_submit" ).click(function( event ) {
     
 });
  */
+
+$("#err_page").click(function(){
+    window.close();
+  })

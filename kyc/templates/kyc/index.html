@@ -24,8 +24,11 @@
     
     
     <!-- Favicon -->                
-    <link href="img/favicon.ico" rel="icon">
+    <!-- <link href="{% static 'kyc/image/klogo.png' %}" rel="icon"> -->
 
+    
+    <link rel="icon" type="ico" href="#">
+    
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com"> <!--ok-->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <!--ok-->
@@ -66,7 +69,7 @@
             
 
             <!-- View Area start -->
-              <div class="container-fluid pt-4 px-4">
+              <div class="container-fluid pt-4 px-0 pe-2">
                 <div class="bg-light text-start rounded p-4">
                     
                     <div id="viewarea">
@@ -93,6 +96,7 @@
     <!-- JavaScript Libraries -->
     
     <script src="{% static 'kyc/lib/js/jquery3.6.0.min.js' %}"></script>  <!--added-->
+    <script src="{% static 'kyc/lib/js/clipboard.min.js' %}"></script>
     <script src="{% static 'kyc/lib/js/bootstrap5.0.0.bundle.min.js' %}"></script> <!--ok-->
     <script src="{% static 'kyc/lib/chart/chart.min.js' %}"></script>
     <script src="{% static 'kyc/lib/easing/easing.min.js' %}"></script>

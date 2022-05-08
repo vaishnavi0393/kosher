@@ -36,7 +36,7 @@ function show_client_data(dt){
           var cell3 = row.insertCell(2);
           var cell4 = row.insertCell(3);
           cell1.innerHTML = dt[j.toString()]['pk'];
-          cell2.innerHTML = "<button type='button' class='btn btn-link' name='g' id='"+j+"' data-bs-toggle='modal' data-bs-target='#myModal'>"+ dt[j.toString()]['fields']['name']+"</button>";
+          cell2.innerHTML = "<button type='button' class='btn btn-link' name='g' id='"+j+"' data-bs-toggle='modal' title='Click to view details' data-bs-target='#myModal'>"+ dt[j.toString()]['fields']['name']+"</button>";
           cell3.innerHTML = dt[j.toString()]['fields']['contact_no'];
           cell4.innerHTML = dt[j.toString()]['fields']['email_ad'];      
         }

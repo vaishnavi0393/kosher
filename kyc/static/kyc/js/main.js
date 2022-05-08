@@ -67,6 +67,7 @@
 
     $("#kyc_url").on("click",function(e){
         e.preventDefault();
+        $("#myInput").attr("placeholder","Search active link");
         display("#gen_kyc_url_area");
         change_active_link("#kyc_url");
     });
@@ -74,7 +75,7 @@
 
     $("#client_data").on("click",function(e){
         e.preventDefault();
-        var url = this.href;
+        $("#myInput").attr("placeholder","Search client name");
         display("#client_data_area");
         change_active_link("#client_data");
     });
@@ -91,7 +92,32 @@
         act_link = link;
     }
 
-    
+    $("#myInput").on("keyup",function (e) {
+        var input, filter, table, tr, td, i, txtValue,col;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        if (act_area=="#client_data_area"){
+            table = document.getElementById("mytab");
+            col = 1;
+        }
+        else if (act_area=="#gen_kyc_url_area"){
+            table = document.getElementById("mytab1");
+            col = 2;
+        }
+
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+          td = tr[i].getElementsByTagName("td")[col];
+          if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+              tr[i].style.display = "";
+            } else {
+              tr[i].style.display = "none";
+            }
+          }       
+        }
+      });
 
 
     // Worldwide Sales Chart

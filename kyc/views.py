@@ -1,6 +1,7 @@
 
-from django.shortcuts import render
-from django.http import Http404,HttpResponse
+import re
+from django.shortcuts import render,redirect
+from django.http import Http404,HttpResponse, HttpResponseBadRequest
 import json
 from .models import KYC_URL_DB, KYC_data
 from django.db import IntegrityError
@@ -23,57 +24,79 @@ class AdminPage(View):
             return render(request,'kyc/index.html',{})
         except:
             raise Http404("Page not found")
-
-""" 
-def test1(request):
-    try:
-        return render(request,'kyc/te.html',{})
-    except:
-        raise Http404("Page not found") """
+ 
+class Test1(View):
+    def get(self,request):
+        try:
+            print(request.GET.get('id',0))
+            return render(request,'kyc/test1.html',{})
+        except:
+            raise Http404("Page not found") 
+    
+    def post(self,request):
+        try:
+            idu = request.POST.get('id',False)
+            return redirect('success_page.html')
+        except:
+            return redirect('kyc/success_page.html')
 
 class KycData(View):
     def get(self,request):
         try:
             id = request.GET.get('id',0)
-            
-            return render(request,'kyc/kyc_form.html',{})
+            u = KYC_URL_DB.objects.filter(uiid=id,is_active=True).exists()
+            if u:
+                return render(request,'kyc/kyc_form.html',{})
+            else:
+                return render(request,"kyc/error_page.html",{})
         except:
             raise Http404("Page not found")
 
+    
     def post(self,request):
         dt = json.loads(request.body)
-        try:
-            k = KYC_data.objects.create(
-            name = dt['identity_details']['name'],
-            gender = dt['identity_details']['gender'],
-            marital_status = dt['identity_details']['marital_status'],
-            dob = dt['identity_details']['dob'],
-            nationality = dt['identity_details']['nationality'],
-            status = dt['identity_details']['status'],
-            pan = dt['identity_details']['PAN_number'],
-            aadhar = dt['identity_details']['aadhar_number'],
-            permanent_address = dt['address_details']['permanent_address'],
-            communication_address = dt['address_details']['communication_address'],
-            contact_no = dt['address_details']['contact_number'],
-            email_ad = dt['address_details']['email'],
-            gross_annual_income = dt['other_information']['gross_annual_income'],
-            occupation = dt['other_information']['occupation'],
-            applicable_type = dt['other_information']['applicable_type'],
-            KYC_check = dt['other_information']['KYC_check'],
-            experience = dt['investment_profile']['investment_experience_in_security'],
-            goals = dt['investment_profile']['investment_goals'],
-            risk = dt['investment_profile']['risk_tolerance'],
-            objective = dt['investment_profile']['investment_objectives']
-            )
+        id = dt['uiid']
+        print (id)
+        u = KYC_URL_DB.objects.filter(uiid=id,is_active=True)
+        if u.exists():
+            try:
+                k = KYC_data.objects.create(
+                name = dt['identity_details']['name'],
+                gender = dt['identity_details']['gender'],
+                marital_status = dt['identity_details']['marital_status'],
+                dob = dt['identity_details']['dob'],
+                nationality = dt['identity_details']['nationality'],
+                status = dt['identity_details']['status'],
+                pan = dt['identity_details']['PAN_number'],
+                aadhar = dt['identity_details']['aadhar_number'],
+                permanent_address = dt['address_details']['permanent_address'],
+                communication_address = dt['address_details']['communication_address'],
+                contact_no = dt['address_details']['contact_number'],
+                email_ad = dt['address_details']['email'],
+                gross_annual_income = dt['other_information']['gross_annual_income'],
+                occupation = dt['other_information']['occupation'],
+                applicable_type = dt['other_information']['applicable_type'],
+                KYC_check = dt['other_information']['KYC_check'],
+                experience = dt['investment_profile']['investment_experience_in_security'],
+                goals = dt['investment_profile']['investment_goals'],
+                risk = dt['investment_profile']['risk_tolerance'],
+                objective = dt['investment_profile']['investment_objectives']
+                )
+                ui = KYC_URL_DB.objects.get(uiid=id,is_active=True)
+                ui.is_active = False
+                ui.save()
+                return HttpResponse("success")
 
-            u = KYC_URL_DB.objects.get(uiid=dt['uiid'],is_active=True)
-            u.is_active = False
-            u.save() 
+            except IntegrityError:
+                return HttpResponse("failed")
+        else:
+            return render(request,"kyc/success_page.html",{}) 
+        
+        
             
-            return HttpResponse("success")
             
-        except IntegrityError:
-            return HttpResponse("failed")
+            
+        
 
 
 class ClientData(View):

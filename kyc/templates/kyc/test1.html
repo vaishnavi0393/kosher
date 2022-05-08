@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% load static %}
+        {% csrf_token %}
+    </head>
+    <body>
+        <button type="submit" id="sub">Submit</button>
+    </body>
+    <script src="{% static 'kyc/lib/js/jquery3.6.0.min.js' %}"></script>
+    <script src="{% static 'kyc/js/test.js' %}"></script>
+</html>

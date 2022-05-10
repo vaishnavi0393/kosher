@@ -1,3 +1,4 @@
+
 """
 Django settings for kosher project.
 
@@ -25,7 +26,7 @@ SECRET_KEY = 'django-insecure-qfimh6go0ua3wa4yo&bxtb#7a8pd4!p$(og9g_i7$=r&+nwvwu
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['numberlabs.in']
 
 
 # Application definition

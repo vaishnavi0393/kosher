@@ -26,6 +26,11 @@
     });
 
 
+    $('.nav-item').click(function(){
+        if ($(window).width() < 1024) {
+            $('.sidebar, .content').toggleClass("open");    
+        }
+    })
     // Sidebar Toggler
     $('.sidebar-toggler').click(function () {
         $('.sidebar, .content').toggleClass("open");

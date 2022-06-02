@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Security-Policy" 
+            content="default-src 'self';
+                    img-src 'self' data: ;
+                    style-src 'self'  https://fonts.googleapis.com  https://stackpath.bootstrapcdn.com;
+                    style-src-elem 'self' https://fonts.googleapis.com  https://stackpath.bootstrapcdn.com;
+                    script-src 'self' ;
+                    font-src 'self' https://fonts.gstatic.com  https://stackpath.bootstrapcdn.com; ">
+    {% load static %}
+    {% csrf_token %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width" initial-scale="1.0">
+    
+    
+  
+    <title>Kosher</title>
+    
+    <!-- Bootstrap 5 CSS -->  
+    <link rel='stylesheet' href="{% static 'kyc/lib/css/bootstrap5.0.0.min.css' %}">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="{% static 'kyc/lib/css/bootstrap5.1.0.min.css' %}" rel="stylesheet" >
+</head>
+<body>
+<div class="alert alert-success" role="alert">
+      Data submitted successfully. Click <a href="#" id="succ_page" class="alert-link">here</a> to close.
+  </div>
+  <!-- jQuery JS -->
+  <script src="{% static 'kyc/lib/js/jquery3.6.0.min.js' %}"></script>
+  <!-- Bootstrap 5 JS -->
+  <script src="{% static 'kyc/lib/js/bootstrap5.0.0.bundle.min.js' %}"></script>
+  <script src="{% static 'kyc/js/submission.js' %}"></script>
+</body>
+</html>

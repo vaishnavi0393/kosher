@@ -1,7 +1,7 @@
 
 import re
 from django.shortcuts import render,redirect
-from django.http import Http404,HttpResponse, HttpResponseBadRequest
+from django.http import Http404,HttpResponse, HttpResponsePermanentRedirect
 import json
 from .models import KYC_URL_DB, KYC_data
 from django.db import IntegrityError
@@ -36,7 +36,7 @@ class Test1(View):
     def post(self,request):
         try:
             idu = request.POST.get('id',False)
-            return redirect('success_page.html')
+            return render('success_page.html')
         except:
             return redirect('kyc/success_page.html')
 
@@ -85,12 +85,12 @@ class KycData(View):
                 ui = KYC_URL_DB.objects.get(uiid=id,is_active=True)
                 ui.is_active = False
                 ui.save()
-                return HttpResponse("success")
+                return HttpResponse('success')
 
             except IntegrityError:
                 return HttpResponse("failed")
-        else:
-            return render(request,"kyc/success_page.html",{}) 
+        #else:
+        #    return render(request,"kyc/success_page.html",{}) 
         
         
             
@@ -119,7 +119,7 @@ def gen_kyc_url(request):
     try:
         s1 = B64UUID()
         u_id = s1.string
-        u = settings.HOST + '/kyc/kyc_form?id='+ u_id 
+        u = settings.HOST + '/kyc/kyc_form?id='+ u_id
         g = KYC_URL_DB.objects.create(
             url = u, uiid = u_id
         )

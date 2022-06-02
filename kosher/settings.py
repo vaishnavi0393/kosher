@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-qfimh6go0ua3wa4yo&bxtb#7a8pd4!p$(og9g_i7$=r&+nwvwu'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['numberlabs.in','13.126.183.0']
+ALLOWED_HOSTS = ['numberlabs.in','13.126.183.0','127.0.0.1']
 
 HOST = '13.126.183.0'
 
@@ -124,6 +124,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
+
+STATIC_ROOT = '/var/www/html/kosher_static'
 
 
 

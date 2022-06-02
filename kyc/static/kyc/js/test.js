@@ -7,7 +7,7 @@ $("#sub").click (function(){
     const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
 
     xhttp.onload = function() {
-        alert(this.responseText);
+        
       }
     xhttp.open("POST","test1");
     xhttp.setRequestHeader("X-CSRFToken",csrftoken);

@@ -1,15 +1,16 @@
 var kyc_data;
 
-var clipboard = new ClipboardJS('.btn');
+var clipboard = new ClipboardJS('button[id^=btn]');
 
 $("#success-alert").hide();
+
 clipboard.on('success', function (e) {
   $('#overlay').modal('show');
-
   setTimeout(function() {
       $('#overlay').modal('hide');
   }, 1000);
 });
+
 
 /* 
       clipboard.on('success', function (e) {
@@ -94,6 +95,10 @@ $("#gen_kyc_url").on('click',function(){
       else{
         kyc_data = JSON.parse(this.responseText);
         table_data(kyc_data);
+        $('#generated').modal('show');
+        setTimeout(function() {
+          $('#generated').modal('hide');
+        }, 1000);
       }
     }
   }

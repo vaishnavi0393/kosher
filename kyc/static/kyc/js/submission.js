@@ -66,6 +66,6 @@ $("#success").click(function(){
     window.close();
 })
 
-/* $("#err_page").click(function(){
+$("#err_page").click(function(){
     window.close();
-  }) */
+  })

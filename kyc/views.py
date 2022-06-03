@@ -48,7 +48,7 @@ class KycData(View):
             if u:
                 return render(request,'kyc/kyc_form.html',{})
             else:
-                return render(request,"kyc/error_page.html",{})
+                return render(request, 'kyc/error_page.html',{})
         except:
             raise Http404("Page not found")
 

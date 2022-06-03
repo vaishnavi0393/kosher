@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-qfimh6go0ua3wa4yo&bxtb#7a8pd4!p$(og9g_i7$=r&+nwvwu'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['numberlabs.in','13.126.183.0','127.0.0.1']
 

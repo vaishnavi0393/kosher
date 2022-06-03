@@ -43,9 +43,9 @@ $( "#form_submit" ).click(function( event ) {
         if(this.responseText=="failed") {
             $("#er").modal('show');
         }
-        /* else if(this.responseText=="success") {
+        else if(this.responseText=="success") {
             $('#su').modal('show');
-        } */
+        }
       }
     xhttp.open("POST","kyc_data");
     xhttp.setRequestHeader("X-CSRFToken",csrftoken);
@@ -62,10 +62,10 @@ $( "#form_submit" ).click(function( event ) {
     
 });
  */
-$("#succ_page").click(function(){
+$("#success").click(function(){
     window.close();
 })
 
-$("#err_page").click(function(){
+/* $("#err_page").click(function(){
     window.close();
-  })
+  }) */

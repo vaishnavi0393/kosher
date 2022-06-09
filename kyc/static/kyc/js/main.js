@@ -1,3 +1,6 @@
+         
+
+
 (function ($) {
     "use strict";
 
@@ -72,7 +75,7 @@
 
     $("#kyc_url").on("click",function(e){
         e.preventDefault();
-        $("#myInput").attr("placeholder","Search active link");
+        $("#myInput").attr("placeholder","Search used link");
         display("#gen_kyc_url_area");
         change_active_link("#kyc_url");
     });
@@ -93,13 +96,15 @@
 
     function change_active_link(link){
         $(act_link).attr("class", "nav-item nav-link");
-        $(link).attr("class", "nav-item nav-link active");
+        $(link).attr("class", "nav-item bg-light nav-link active");
         act_link = link;
     }
 
     $("#myInput").on("keyup",function (e) {
+        
         var input, filter, table, tr, td, i, txtValue,col;
         input = document.getElementById("myInput");
+        
         filter = input.value.toUpperCase();
         if (act_area=="#client_data_area"){
             table = document.getElementById("mytab");
@@ -107,7 +112,7 @@
         }
         else if (act_area=="#gen_kyc_url_area"){
             table = document.getElementById("mytab1");
-            col = 2;
+            col = 1;
         }
 
         tr = table.getElementsByTagName("tr");
@@ -123,7 +128,6 @@
           }       
         }
       });
-
 
     // Worldwide Sales Chart
     /* var ctx1 = $("#worldwide-sales").get(0).getContext("2d");

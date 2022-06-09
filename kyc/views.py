@@ -84,6 +84,7 @@ class KycData(View):
                 )
                 ui = KYC_URL_DB.objects.get(uiid=id,is_active=True)
                 ui.is_active = False
+                ui.used_by = dt['identity_details']['name']
                 ui.save()
                 return HttpResponse('success')
 

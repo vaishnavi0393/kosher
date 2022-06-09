@@ -48,6 +48,7 @@ class KYC_URL_DB(models.Model):
     url = models.CharField(max_length=200,unique=True)
     uiid = models.CharField(max_length=100,unique=True)
     is_active = models.BooleanField(default=True)
+    used_by = models.CharField(max_length=100,default='NA')
 
     class Meta:
         db_table = "kyc_url_db"

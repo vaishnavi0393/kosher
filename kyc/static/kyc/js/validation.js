@@ -51,6 +51,7 @@ $(".radio-group .radio").on("click", function () {
   }
 });*/
 
+$("#succ_page").hide();
 
 
 jQuery(function($){ // wait until the DOM is ready

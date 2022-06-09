@@ -1,30 +1,37 @@
 <!--Generate KYC URL area start-->
 
-<div id ="gen_kyc_url_area">
+<div  class="row" id="gen_kyc_url_area">
     <div class="d-flex align-items-center justify-content-between mb-4">
         <h6 class="mb-0"></h6>
-        <button type="button" id="gen_kyc_url" class="btn btn-outline-primary">Generate URL</button>
+        <button type="button" id="gen_kyc_url" class="btn btn-outline-dark">Generate URL</button>
     </div>
     <div class="modal fade" id="generated">
       <div class="modal-dialog">
         <div class="modal-content">
-          <div class="modal-header">
+          <div class="modal-header"> 
             <h5 class="modal-title">Generated!</h5>
           </div> 
         </div>
       </div>
     </div>
-    <div class="table-responsive">
-        <table class="table text-center align-middle table-bordered table-hover mb-0">
+    <div class="container-fluid">
+    
+        <input class="form-control border-1" type="text" placeholder="Search in table..." id="searchField">
+      
+      <div id='ts' class="table-sortable">
+
+      </div>
+        <!-- <table id="tab1" class="table table-responsive text-center align-middle table-bordered table-hover mb-0">
             <thead class="table-light">
-                <th scope="col">Select</th>
                 <th scope="col">URL</th>
-                <th scope="col">Is Active</th>
+                <th scope="col">Used By</th>
             </thead>
             <tbody id="mytab1">
             </tbody>
-        </table>
+        </table> -->
+       
     </div>
+    <div id="con"></div>
     <div class="modal fade" id="overlay">
         <div class="modal-dialog">
           <div class="modal-content">

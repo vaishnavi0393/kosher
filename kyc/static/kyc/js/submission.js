@@ -44,7 +44,14 @@ $( "#form_submit" ).click(function( event ) {
             $("#er").modal('show');
         }
         else if(this.responseText=="success") {
-            $('#su').modal('show');
+           var content = '<div id="i" class="" role="alert"> '+
+           'Data submitted successfully. Click <a href="#" id="succ_page" class="">here</a> to close.';
+           document.getElementsByTagName('body')[0].innerHTML = content;
+           $("#i").setAttribute("class","alert alert-success");
+           $("#succ_page").setAttribute("class","alert-link");
+           $("#succ_page").click(function(){
+                window.close();
+            })
         }
       }
     xhttp.open("POST","kyc_data");
@@ -62,9 +69,7 @@ $( "#form_submit" ).click(function( event ) {
     
 });
  */
-$("#success").click(function(){
-    window.close();
-})
+
 
 $("#err_page").click(function(){
     window.close();

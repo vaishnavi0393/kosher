@@ -69,10 +69,10 @@ function show_client_data(dt){
     for(p=0,v=0;p<keys.length,v<val.length;p++,v++){
       if($.trim(val[v])!=''){ 
         if(arr.includes(keys[p])==true){
-          txt += "<div class='row'><div class='col-sm'><lable class='fw-bold'>"+ keys[p].toUpperCase()+"</lable><br><textarea class='form-control' value='' disabled>"+ val[v]+"</textarea></div></div><br>";
+          txt += "<div class='row'><div class='col-sm'><lable class='fw-bold'>"+ keys[p].toUpperCase()+"</lable><br><textarea class='form-control fw-bold' value='' readonly>"+ val[v]+"</textarea></div></div><br>";
         }
         else{
-          txt += "<div class='row'><div class='col-sm'><lable class='fw-bold'>"+ keys[p].toUpperCase()+"</lable><br><input type='text' class='form-control' value='"+ val[v]+"' disabled></div></div><br>" ;
+          txt += "<div class='row'><div class='col-sm'><lable class='fw-bold'>"+ keys[p].toUpperCase()+"</lable><br><input type='text' class='form-control fw-bold' value='"+ val[v]+"' readonly></div></div><br>" ;
         }
       }
     }

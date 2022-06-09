@@ -73,14 +73,14 @@ function table_data(kyc_dt){
             data.push({ url: "<div class='input-group mb-3'>"+
             "<input class='form-control' size='10' id='foo"+j+"' type='text' value='"+kyc_dt[j.toString()]['fields']['url']+
             "'disabled><button name='copy' class='btn btn-outline-secondary btn-clipboard' data-toggle='tooltip'"+
-            "data-placement='bottom' data-clipboard-target='#foo"+j+"' title='Copy link' disabled>Copy</button></div>",
+            "data-placement='bottom' id='btn"+j+"' data-clipboard-target='#foo"+j+"' title='Copy link' disabled>Copy</button></div>",
             used_by : kyc_dt[j.toString()]['fields']['used_by'] });
           }
           else {
             data.push({ url : "<div class='input-group mb-3'>"+
             "<input class='form-control' size='10' id='foo"+j+"' type='text' value='"+kyc_dt[j.toString()]['fields']['url']+
             "'readonly><button name='copy' class='btn btn-outline-dark btn-clipboard' data-toggle='tooltip'"+
-            "data-placement='bottom' data-clipboard-target='#foo"+j+"' title='Copy link'>Copy</button></div>",
+            "data-placement='bottom' id='btn"+j+"' data-clipboard-target='#foo"+j+"' title='Copy link'>Copy</button></div>",
             used_by : kyc_dt[j.toString()]['fields']['used_by'] });
           }
          
